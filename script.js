@@ -1,20 +1,16 @@
-let arr = [];
-
+const wrap = document.getElementById("wrap");
 
 document.getElementById("findButton").onclick = function() {
-    const wrap = document.getElementById("wrap");
-    if (wrap.hasChildNodes()) {
-        while (wrap.hasChildNodes()) {
-          wrap.removeChild(wrap.firstChild);
-        }
-      }
-      wrap.innerText = '';
+  while (wrap.firstChild) {
+    wrap.removeChild(wrap.firstChild);
+  }
+
   var typedText = document.getElementById("input").value;
-  console.log(typedText);
   findAnagrams(typedText);
 };
 
 function findAnagrams(a) {
+  let arr = [];
   for (i = 0; i < words.length; i++) {
     if (alphabetize(words[i]) === alphabetize(a) && words[i] !== a) {
       arr.push(words[i]);
